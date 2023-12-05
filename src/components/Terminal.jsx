@@ -38,6 +38,7 @@ const Terminal = ({ setTerminalHistory }) => {
     return (
         <div className='terminal-container'>
             <div className='code-editor' style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10, padding: 20 }}>
+                <h4 style={{color: "#e6a0ff", marginLeft: 20, marginTop: 20, textAlign: "left", width: "100%"}}>SQL Terminal</h4>
                 <CodeEditor value={sqlQuery} onChange={handleQueryChange} />
                 <Button variant="contained"
                     disabled={isQueryFetching}
