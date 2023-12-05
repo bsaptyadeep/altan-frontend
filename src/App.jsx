@@ -3,6 +3,8 @@ import { useState, createContext } from 'react';
 import CodeEditor from './components/CodeEditor';
 import Home from './Pages/Home';
 import TerminalHistory from './components/TerminalHistory';
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const OutputContext = createContext({
   outputRows: [],
@@ -34,6 +36,13 @@ function App() {
       status: `${data.message.command} proccessed successfully`,
       dateTime: Date.now()
     }])
+  }
+
+  const handleClearTerminaHistory = () => {
+    setOutputFields([]);
+    setOutputResults([]);
+    setOutputRows([]);
+    setTerminalHistory([]);
   }
 
   const updateMessage = (message, isError) => {
@@ -71,9 +80,15 @@ function App() {
           <div className="left-section">
             <h2>MySQL Buddy</h2>
             <div className='terminal-history'>
-              <h4 style={{marginLeft: 10}}>Terminal History</h4>
-            <TerminalHistory terminalHistory={terminalHistory} />
+              <h4 style={{ marginLeft: 10 }}>Terminal History</h4>
+              <TerminalHistory terminalHistory={terminalHistory} />
             </div>
+            <Button variant="contained"
+              style={{ background: "#DCA3FF", color: "black", fontWeight: "700", width: 200 }}
+              onClick={handleClearTerminaHistory}
+            >
+              <div style={{ display: "flex", flexDirection: "row", gap: 10, alignItems: "center" }}><p>Clear History</p> <DeleteIcon style={{ height: 14, width: 14 }} /></div>
+            </Button>
           </div>
           <div className="right-section">
             <Home setTerminalHistory={setTerminalHistory} />
