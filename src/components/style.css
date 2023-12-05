@@ -1,0 +1,73 @@
+.terminal-container {
+    height: 50vh;
+    overflow: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.output-container {
+    height: 40vh;
+    background-color: #353535;
+    padding: 20px;
+    color: #DCA3FF;
+}
+
+.output-container-box {
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    background: linear-gradient(179deg, rgba(128, 88, 194, 0.57) -2.15%, rgba(134, 112, 170, 0.00) 98.93%), #312544;
+}
+
+.output-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 4;
+    margin: 10px 20px;
+    color: rgb(215, 215, 215);
+    font-weight: 600;
+}
+
+.result-tag {
+    background-color: #a9ffa0;
+    color: #1d6b14;
+    padding: 0px 20px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.output-divider {
+    background-color: #ffffff;
+    height: 2;
+    width: 90%;
+}
+
+.show-more {
+    background-color: #e6a0ff;
+    color: #252525;
+    padding: 0px 20px;
+    border-radius: 20px;
+    width: fit-content;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10;
+}
+
+.show-more:hover {
+    cursor: pointer;
+}
+
+.terminal-history {
+    overflow-y: scroll;
+    height: 80vh;
+    background-color: #1b1b1b;
+    color: #cccccc;
+
+}
