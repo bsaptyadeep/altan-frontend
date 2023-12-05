@@ -51,7 +51,7 @@ const OutputList = ({ open, query, handleClose }) => {
     useEffect(() => {
         try {
             const getData = async () => {
-                const apiResponse = await axios.post("http://localhost:8080/", { query: query })
+                const apiResponse = await axios.post("https://atlan-backend.onrender.com/", { query: query })
                 setRows(apiResponse.data.message.rows)
                 setFields(apiResponse.data.message.fields)
             }
@@ -89,45 +89,46 @@ const OutputList = ({ open, query, handleClose }) => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    rows.length===0&&
+                                    rows.length === 0 &&
                                     Array.from({ length: 10 }, (_, index) => (
                                         <TableRow key={index}>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={30} />
-                                          </TableCell>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={100} />
-                                          </TableCell>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={80} />
-                                          </TableCell>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={50} />
-                                          </TableCell>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={80} />
-                                          </TableCell>
-                                          <TableCell>
-                                            <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={60} />
-                                          </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={30} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={100} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={80} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={50} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={80} />
+                                            </TableCell>
+                                            <TableCell>
+                                                <Skeleton style={{ backgroundColor: 'white' }} variant="text" width={60} />
+                                            </TableCell>
                                         </TableRow>
-                                      ))
+                                    ))
                                 }
                                 {rows &&
                                     rows.length !== 0 &&
                                     rows.map((row, rowIndex) => {
-                                        if(rowIndex>=page*rowsPerPage&&rowIndex<page*rowsPerPage+rowsPerPage){
-                                        return (
-                                            <StyledTableRow key={row.name}>
-                                                {
-                                                    fields.length !== 0 && fields.map((field, i) => {
-                                                        return (
-                                                            <StyledTableCell key={i} style={{ color: "white" }} align="right">{row[field.name]}</StyledTableCell>
-                                                        )
-                                                    })
-                                                }
-                                            </StyledTableRow>
-                                        )}
+                                        if (rowIndex >= page * rowsPerPage && rowIndex < page * rowsPerPage + rowsPerPage) {
+                                            return (
+                                                <StyledTableRow key={row.name}>
+                                                    {
+                                                        fields.length !== 0 && fields.map((field, i) => {
+                                                            return (
+                                                                <StyledTableCell key={i} style={{ color: "white" }} align="right">{row[field.name]}</StyledTableCell>
+                                                            )
+                                                        })
+                                                    }
+                                                </StyledTableRow>
+                                            )
+                                        }
                                     })}
                             </TableBody>
                         </Table>
