@@ -2,6 +2,9 @@
 ## SQL query editor
 Live Link: https://altan-frontent.vercel.app/
 
+## Test table: employees
+## test command: select * from employees
+
 # Features:
 1. MySQL Buddy has 3 main sections: SQL Terminal to query DB, Output Terminal, and Query History.
 2. SQL Terminal is a rich code Editor, The Query button is Disabled while processing the query.
